@@ -1,0 +1,11 @@
+.header-title{
+    color: white;
+    font-style: italic;
+    font-size: 30px;
+    margin-right: 40px;
+}
+@media only screen and (max-width: 568px ) {
+    .header-title{
+        font-size: 16px;
+    }
+}
