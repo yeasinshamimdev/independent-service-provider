@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import './Login.css';
 
@@ -18,6 +20,16 @@ const Login = () => {
     };
 
     const navigate = useNavigate();
+    let location = useLocation();
+    let [user] = useAuthState(auth);
+
+    let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user])
 
     return (
         <div className='form-container'>

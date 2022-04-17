@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import googleSignInIcon from '../../images/social icon/google.png';
 import githubSignInIcon from '../../images/social icon/github.png';
 import facebookSignInIcon from '../../images/social icon/facebook.png';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SocialLogin.css';
 import auth from '../../firebase.init';
 import Spinner from '../Spinner/Spinner';
@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const [user, loading, error] = useAuthState(auth)
 
     let googleElement;
 
@@ -27,14 +28,6 @@ const SocialLogin = () => {
 
     if (googleLoading) {
         return <Spinner />
-    }
-
-    if (googleUser) {
-        return (
-            <div>
-                <p>Signed In User: {googleUser.email}</p>
-            </div>
-        );
     }
 
     return (
