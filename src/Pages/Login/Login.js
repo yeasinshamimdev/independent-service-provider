@@ -29,7 +29,7 @@ const Login = () => {
         if (user) {
             navigate(from, { replace: true });
         }
-    }, [user])
+    }, [user]);
 
     return (
         <div className='form-container'>
@@ -56,14 +56,6 @@ const Login = () => {
                     </Form.Group>
                     <p className='forget-password'>Forget Password?</p>
                 </Row>
-                <Form.Group className="mb-3 d-flex justify-content-center">
-                    <Form.Check
-                        required
-                        label="Terms and conditions"
-                        feedback="You must agree before submitting."
-                        feedbackType="invalid"
-                    />
-                </Form.Group>
                 <div className='d-flex justify-content-center'>
                     <Button className='px-5' type="submit">Login</Button>
                 </div>

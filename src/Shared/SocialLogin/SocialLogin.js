@@ -34,7 +34,7 @@ const SocialLogin = () => {
 
     return (
         <div>
-            <div className='d-flex justify-content-center align-items-center'>
+            <div className='d-flex justify-content-center align-items-center mt-4'>
                 <div style={{ width: '48%', borderBottom: '1px solid white' }}></div>
                 <div>
                     <p style={{ paddingLeft: '10px', paddingRight: '10px', marginBottom: '0' }}>Or</p>

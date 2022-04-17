@@ -14,7 +14,7 @@ const Footer = () => {
             <div className='footer-container'>
                 <div className='footer-menu'>
                     <Link to='/'>Home</Link>
-                    <Link to='/services'>Services</Link>
+                    <Link to='/checkout'>Checkout</Link>
                     <Link to='/blogs'>Blogs</Link>
                     <Link to='/about'>About</Link>
                     <Link to='/signup'>Sign Up</Link>
