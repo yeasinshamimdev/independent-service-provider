@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div>
             <Banner />
-            <div className='home-container p-5'>
+            <div className='home-container pt-4'>
                 <div>
                     <img className='w-100' src={fitman} alt="" />
                 </div>
@@ -25,13 +25,15 @@ const Home = () => {
                         EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
                         Hi, my name is Steven and I am a Health and GYM Professional. My training programs will enable you to lose those unwanted pounds, gain muscle tone, and improve your overall health and appearance. You will be completely revitalized by my program!</p>
                     <div>
-                        <button onClick={() => navigate('/checkout')} className='btn btn-primary'>Let's Train Now</button>
+                        <button onClick={() => navigate('/login')} className='btn btn-primary'>Let's Train Now</button>
                     </div>
                 </div>
             </div>
-            <Services />
+            <div className='service-home-container'>
+                <Services />
+            </div>
             <div>
-                <h1 className='text-center my-4'>WHAT PEOPLE ARE SAYING</h1>
+                <h1 className='text-center mt-5'>WHAT PEOPLE ARE SAYING</h1>
                 <div className='review-container'>
                     {
                         reviews.map(review => <Review key={review.id} review={review} />)

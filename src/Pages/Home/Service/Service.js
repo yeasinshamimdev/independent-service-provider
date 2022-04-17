@@ -9,9 +9,9 @@ const Service = ({ service }) => {
             <div className='service-info'>
                 <h4>{name}</h4>
                 <h6>Price: ${price}</h6>
-                <p>{description}</p>
+                <p>{description.length > 300 ? description.slice(0, 290) + '...' : description}</p>
             </div>
-            <div className='d-flex justify-content-center py-2 service-btn'>
+            <div className='d-flex justify-content-center py-3 service-btn'>
                 <button className='btn btn-primary w-75'>Check out</button>
             </div>
         </div>

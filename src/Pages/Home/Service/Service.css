@@ -1,7 +1,6 @@
 .service-container{
     box-shadow: 5px 5px 20px lightgray;
     border-radius: 5px;
-
 }
 .service-container img{
     padding: 5px;
@@ -9,8 +8,12 @@
     height: 260px;
 }
 .service-info{
-    padding: 8px;
+    padding: 8px 15px;
+}
+.service-info>h6{
+    margin-top: 10px;
 }
 .service-info>p{
     text-align: justify;
+    margin-top: 14px;
 }

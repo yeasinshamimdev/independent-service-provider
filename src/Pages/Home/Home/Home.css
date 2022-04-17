@@ -4,11 +4,15 @@
     grid-gap: 20px;
 }
 
+.service-home-container{
+    padding: 5px 15px;
+}
+
 .review-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 40px;
+    grid-gap: 40px;
+    padding: 55px;
 }
 
 @media only screen and (max-width: 768px) {

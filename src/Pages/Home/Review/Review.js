@@ -1,14 +1,22 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import './Review.css';
 
 const Review = ({ review }) => {
     const { name, img, profession, rating, description } = review;
     return (
-        <div>
+        <div className='review-card'>
             <img src={img} alt="" />
             <div className='review-info'>
-                <h4>{name}</h4>
+                <h5>{name}</h5>
                 <p>{profession}</p>
                 <p>Rating: {rating} start</p>
+                <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
+                <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
+                <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
+                <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
+                <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
                 <p>{description}</p>
             </div>
         </div>

@@ -1,0 +1,26 @@
+.review-card{
+    padding: 8px;
+    box-shadow: 5px 5px 30px lightgray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.review-card img{
+    border-radius: 50%;
+    width: 40%;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.review-info{
+    padding: 10px 8px;
+    text-align: center;
+}
+.review-info p{
+    margin: 3px;
+}
+.font-icon-svg{
+    color: rgb(241, 241, 5);
+    font-size: 20px;
+    margin-right: 5px;
+}

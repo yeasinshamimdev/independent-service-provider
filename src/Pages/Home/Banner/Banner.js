@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import bannerImage1 from '../../../images/banner1.jpg';
 import bannerImage2 from '../../../images/banner2.jpg';
 import bannerImage3 from '../../../images/banner3.jpg';
@@ -11,6 +12,7 @@ const Banner = () => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+    const navigate = useNavigate();
     return (
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item>
@@ -22,6 +24,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>KEEP YOUR BODY FIT AND STRONG</h1>
                     <h5 className='trainer-info'>WITH STEVE SHAMIM</h5>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -34,6 +37,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>Steve Shamim</h1>
                     <h5 className='trainer-info'>Your New Personal Trainer</h5>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -46,6 +50,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>Steve Shamim</h1>
                     <h5 className='trainer-info'>BECOME YOUR STRONGEST SELF</h5>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
