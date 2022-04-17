@@ -1,5 +1,6 @@
-.header-container a{
+.navbar-nav a{
     text-decoration: none;
+    padding: 2px 10px;
     color: white;
     margin-right: 40px;
     display: flex;
@@ -9,7 +10,7 @@
 }
 
 .header-title{
-    color: white;
+    color: rgb(246, 233, 254);
     font-style: italic;
     font-size: 30px;
     margin-right: 40px;
