@@ -17,7 +17,7 @@ const Review = ({ review }) => {
                 <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
                 <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
                 <FontAwesomeIcon className='font-icon-svg' icon={faStar} />
-                <p>{description}</p>
+                <p style={{ textAlign: 'justify', marginTop: '10px' }}>{description}</p>
             </div>
         </div>
     );

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import googleSignInIcon from '../../images/social icon/google.png';
 import githubSignInIcon from '../../images/social icon/github.png';
 import facebookSignInIcon from '../../images/social icon/facebook.png';
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './SocialLogin.css';
 import auth from '../../firebase.init';
 import Spinner from '../Spinner/Spinner';
@@ -11,22 +11,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [user, loading, error] = useAuthState(auth)
+    const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
 
+    const [user, loading, error] = useAuthState(auth);
     let googleElement;
 
     useEffect(() => {
-        if (googleError) {
-            if (googleError?.message === "Firebase: Error (auth/popup-closed-by-user).") {
-                toast('User login failed')
+        if (googleError || githubError || facebookError) {
+            if (googleError?.message === "Firebase: Error (auth/popup-closed-by-user)." || githubError?.message === "Firebase: Error (auth/popup-closed-by-user)." || facebookError?.message === "Firebase: Error (auth/popup-closed-by-user).") {
+                toast('popup canceled! user login failed')
             }
             else {
-                toast(googleError.message);
+                toast(googleError?.message || githubError?.message || facebookError?.message);
             }
         }
-    }, [googleError]);
+    }, [googleError, githubError, facebookError]);
 
-    if (googleLoading) {
+    if (googleLoading || githubLoading || facebookLoading) {
         return <Spinner />
     }
 
@@ -42,8 +44,10 @@ const SocialLogin = () => {
             <div className='social-login-container d-flex justify-content-center align-items-center'>
                 <div>
                     <button onClick={() => signInWithGoogle()} className='btn btn-primary d-block w-100 mt-3'><span><img style={{ width: '30px' }} src={googleSignInIcon} alt="" /></span> Sign In With Google</button>
-                    <button className='btn btn-primary d-block w-100 mt-3'><span><img style={{ width: '30px' }} src={githubSignInIcon} alt="" /></span> Sign In With Github</button>
-                    <button className='btn btn-primary d-block w-100 mt-3' > <span><img style={{ width: '28px' }} src={facebookSignInIcon} alt="" /></span> Sign In With Facebook</button>
+
+                    <button onClick={() => signInWithGithub()} className='btn btn-primary d-block w-100 mt-3'><span><img style={{ width: '30px' }} src={githubSignInIcon} alt="" /></span> Sign In With Github</button>
+
+                    <button onClick={() => signInWithFacebook()} className='btn btn-primary d-block w-100 mt-3' > <span><img style={{ width: '28px' }} src={facebookSignInIcon} alt="" /></span> Sign In With Facebook</button>
                 </div>
                 <ToastContainer />
             </div>

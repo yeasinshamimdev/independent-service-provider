@@ -26,7 +26,10 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         <CustomLink to="/signup">Sign Up</CustomLink>
-                        <CustomLink to="login">{user ? <button onClick={() => signOut(auth)} className='btn btn-dark'>Sign out</button> : <button className='btn btn-dark'>Login</button>}</CustomLink>
+                        <CustomLink to="login">{user ?
+                            <button onClick={() => signOut(auth)} className='btn btn-dark'>Sign out</button> :
+                            <button className='btn btn-dark'>Login</button>}
+                        </CustomLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

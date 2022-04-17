@@ -25,7 +25,7 @@ const Home = () => {
                         EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
                         Hi, my name is Shamim and I am a Health and GYM Professional. My training programs will enable you to lose those unwanted pounds, gain muscle tone, and improve your overall health and appearance. You will be completely revitalized by my program!</p>
                     <div>
-                        <button onClick={() => navigate('/login')} className='btn btn-primary'>Let's Train Now</button>
+                        <button onClick={() => navigate('/checkout')} className='btn btn-primary'>Let's Train Now</button>
                     </div>
                 </div>
             </div>
