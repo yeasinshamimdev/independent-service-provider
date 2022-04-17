@@ -1,8 +1,19 @@
+.header-container a{
+    text-decoration: none;
+    color: white;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
 .header-title{
     color: white;
     font-style: italic;
     font-size: 30px;
     margin-right: 40px;
+    cursor: pointer;
 }
 @media only screen and (max-width: 568px ) {
     .header-title{

@@ -8,7 +8,7 @@ const Service = ({ service }) => {
             <img src={img} alt="" />
             <div className='service-info'>
                 <h4>{name}</h4>
-                <h6>Price: {price}</h6>
+                <h6>Price: ${price}</h6>
                 <p>{description}</p>
             </div>
             <div className='d-flex justify-content-center py-2 service-btn'>
