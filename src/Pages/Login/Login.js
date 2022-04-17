@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import './Login.css';
 
 const Login = () => {
@@ -58,6 +59,7 @@ const Login = () => {
                     <p className='new-user'>New in gym with Shamim? <span onClick={() => navigate('/signup')} className='signup-toggle'>Sign up</span></p>
                 </div>
             </Form>
+            <SocialLogin />
         </div>
     );
 };
