@@ -1,0 +1,26 @@
+[
+    {
+        "id": "01",
+        "name": "DEBBIE FRANKLIN",
+        "profession": "Tennis Player",
+        "rating": "5",
+        "img": "http://stevenwatkins.axiomthemes.com/wp-content/uploads/2016/09/testim-3.jpg",
+        "description": "We all had to start somewhere, but I can tell for sure that Steven knows exactly how to effectively learn about healthy lifestyle and working out. He will be there for you with his professional program and nutritional diet plan. The results are amazing!"
+    },
+    {
+        "id": "02",
+        "name": "REBECCA STEVENS",
+        "profession": "Student",
+        "rating": "4.2",
+        "img": "http://stevenwatkins.axiomthemes.com/wp-content/uploads/2016/09/testim-1.jpg",
+        "description": "Shamim is an awesome trainer to work with: he is a positive and strong man with kind and sincere intentions to help you! If you are a beginner, he will teach you everything and will be supporting you throughout the entire journey to the body of you dream."
+    },
+    {
+        "id": "03",
+        "name": "AARON KEANLY",
+        "profession": "Model",
+        "rating": "5",
+        "img": "http://stevenwatkins.axiomthemes.com/wp-content/uploads/2016/09/testim-2.jpg",
+        "description": "I love your hard work and the devotion to every trainee. The results were almost immediate! Really, if you know that your trainer is a professional you can become a completely different self within months. Think positive, eat good and start working out with Shamim."
+    }
+]

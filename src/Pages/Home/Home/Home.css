@@ -1,0 +1,34 @@
+.home-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.review-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    .home-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .review-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .home-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .review-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
