@@ -4,11 +4,24 @@
 .trainer-info{
     font-size: 20px;
 }
+
+.banner-btn{
+    padding: 10px 50px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
 @media only screen and (max-width: 568px) {
     .trainer-title{
-        font-size: 22px;
+        font-size: 20px;
     }
     .trainer-info{
-        font-size: 16px;
+        font-size: 10px;
+    }
+    .banner-btn{
+        padding: 2px 5px;
+        font-weight: 200;
+        font-size: 12px;
+        margin: 0;
     }
 }

@@ -54,4 +54,7 @@ footer{
     .footer-menu a{
         text-align: center;
     }
+    .get-in-tech{
+        display: none;
+    }
 }

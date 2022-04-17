@@ -17,13 +17,13 @@ const Home = () => {
                 <div>
                     <img className='w-100' src={fitman} alt="" />
                 </div>
-                <div>
+                <div className='px-5'>
                     <h1 className='mt-5 fs-2'>BECOME YOUR STRONGEST SELF</h1>
                     <p className='text-danger'>EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER</p>
                     <p style={{ textAlign: 'justify' }}>
                         BECOME YOUR STRONGEST SELF
                         EXCERCISE SMARTER, FEEL BETTER, LIVE LONGER.
-                        Hi, my name is Steven and I am a Health and GYM Professional. My training programs will enable you to lose those unwanted pounds, gain muscle tone, and improve your overall health and appearance. You will be completely revitalized by my program!</p>
+                        Hi, my name is Shamim and I am a Health and GYM Professional. My training programs will enable you to lose those unwanted pounds, gain muscle tone, and improve your overall health and appearance. You will be completely revitalized by my program!</p>
                     <div>
                         <button onClick={() => navigate('/login')} className='btn btn-primary'>Let's Train Now</button>
                     </div>

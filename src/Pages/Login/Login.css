@@ -1,0 +1,38 @@
+.form-container{
+    width: 50%;
+    padding: 20px 40px;
+    margin: 60px auto;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.forget-password{
+    text-decoration: underline;
+    cursor: pointer;
+    color: orangered;
+    margin-top: 20px ;
+}
+
+.new-user{
+    margin-top: 10px;
+}
+
+.signup-toggle{
+    color: cornflowerblue;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+    .form-container{
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 568px) {
+    .form-container{
+        width: 90%;
+    }
+}

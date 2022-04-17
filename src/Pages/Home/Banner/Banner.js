@@ -24,7 +24,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>KEEP YOUR BODY FIT AND STRONG</h1>
                     <h5 className='trainer-info'>WITH STEVE SHAMIM</h5>
-                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary banner-btn'>BE A MEMBER</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -37,7 +37,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>Steve Shamim</h1>
                     <h5 className='trainer-info'>Your New Personal Trainer</h5>
-                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary banner-btn'>BE A MEMBER</button>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -50,7 +50,7 @@ const Banner = () => {
                 <Carousel.Caption>
                     <h1 className='trainer-title'>Steve Shamim</h1>
                     <h5 className='trainer-info'>BECOME YOUR STRONGEST SELF</h5>
-                    <button onClick={() => navigate('/signup')} className='btn btn-primary my-4 px-5 w-25 py-2 fs-5'>Sign UP</button>
+                    <button onClick={() => navigate('/signup')} className='btn btn-primary banner-btn'>BE A MEMBER</button>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
