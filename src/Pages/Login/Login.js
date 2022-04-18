@@ -59,7 +59,7 @@ const Login = () => {
 
     return (
         <div className='form-container'>
-            <h2 className='text-center mb-5'>Please Login</h2>
+            <h2 className='text-center mb-5 text-primary'>Please Login</h2>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row className="mb-4">
                     <Form.Group className='mt-2' as={Row} md="4" controlId="validationCustom01">

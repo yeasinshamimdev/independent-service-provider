@@ -14,7 +14,7 @@ const Service = ({ service }) => {
                 <p>{description.length > 300 ? description.slice(0, 290) + '...' : description}</p>
             </div>
             <div className='d-flex justify-content-center py-3 service-btn'>
-                <button onClick={() => navigate('/checkout')} className='btn btn-primary w-75'>Buy This Class</button>
+                <button onClick={() => navigate(`/checkout/${id}`)} className='btn btn-primary w-75'>Buy This Class</button>
             </div>
         </div>
     );
