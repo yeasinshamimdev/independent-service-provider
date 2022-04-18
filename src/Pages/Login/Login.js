@@ -11,17 +11,13 @@ import './Login.css';
 
 const Login = () => {
     const [validated, setValidated] = useState(false);
+    const [resetEmail, setResetEmail] = useState('');
+
     const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const form = e.currentTarget;
-        if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        setValidated(true);
 
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -46,16 +42,18 @@ const Login = () => {
         }
     }, [user, emailUser, emailError]);
 
-    console.log(emailError?.message);
+    const handleResetEmail = (e) => {
+        const inputEmail = e.target.value;
+        setResetEmail(inputEmail);
+    }
 
-    const forgetPassword = async (e) => {
-        const email = e.target.email?.value;
-        if (email) {
-            await sendPasswordResetEmail(email);
+    const forgetPassword = async () => {
+        if (resetEmail.includes('@gmail.com')) {
+            await sendPasswordResetEmail(resetEmail);
             toast('Sent email');
         }
         else {
-            toast('Please give a valid email!');
+            toast('Please give a valid email')
         }
     }
 
@@ -66,7 +64,7 @@ const Login = () => {
                 <Row className="mb-4">
                     <Form.Group className='mt-2' as={Row} md="4" controlId="validationCustom01">
                         <Form.Label>Your Email</Form.Label>
-                        <Form.Control
+                        <Form.Control onBlur={handleResetEmail}
                             required
                             type="email"
                             placeholder="Your email"
