@@ -11,7 +11,7 @@ const About = () => {
             <div >
                 <h1 className='text-center mt-3'>Hi there,</h1>
                 <h2 className='text-center mb-4'>I am Yeasin Shamim</h2>
-                <p className='text-justify'>I have big dream to be a full stack web developer. I have already start this journey with programming hero community. My skills is:- HTML, CSS, Bootstrap, tailwind css, javaScript, Regex, React Js, Firebase, Material UI, Figma, React firebase hooks etc. I am very hard working person. I love pain. Because without pain you can't gain anything. So I want to very hard work for be a web developer. </p>
+                <p className='text-justify'>My goals:- I have big dream to be a full stack web developer. I have already start this journey with programming hero community. My skills is:- HTML, CSS, Bootstrap, tailwind css, javaScript, Regex, React Js, Firebase, Material UI, Figma, React firebase hooks etc. I am very hard working person. I love pain. Because without pain you can't gain anything. So I want to very hard work for be a web developer. </p>
             </div>
         </div>
     );
