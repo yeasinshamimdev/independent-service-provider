@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import Spinner from '../../Shared/Spinner/Spinner';
 import './Login.css';
 
 const Login = () => {
     const [validated, setValidated] = useState(false);
+    const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
         if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
         }
-
         setValidated(true);
+
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(email, password);
     };
 
     const navigate = useNavigate();
@@ -26,10 +35,29 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (user) {
+        if (user || emailUser) {
             navigate(from, { replace: true });
         }
-    }, [user]);
+        if (emailError?.message === "Firebase: Error (auth/user-not-found).") {
+            toast('No account found! Please register');
+        }
+        if (emailError?.message === "Firebase: Error (auth/wrong-password).") {
+            toast('Wrong password');
+        }
+    }, [user, emailUser, emailError]);
+
+    console.log(emailError?.message);
+
+    const forgetPassword = async (e) => {
+        const email = e.target.email?.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('Please give a valid email!');
+        }
+    }
 
     return (
         <div className='form-container'>
@@ -42,6 +70,7 @@ const Login = () => {
                             required
                             type="email"
                             placeholder="Your email"
+                            name="email"
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
@@ -51,10 +80,11 @@ const Login = () => {
                             required
                             type="password"
                             placeholder="password"
+                            name="password"
                         />
                         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
-                    <p className='forget-password'>Forget Password?</p>
+                    <button onClick={forgetPassword} className='btn btn-link text-start forget-password'>Forget Password?</button>
                 </Row>
                 <div className='d-flex justify-content-center'>
                     <Button className='px-5' type="submit">Login</Button>
@@ -62,6 +92,7 @@ const Login = () => {
                 <div className='d-flex justify-content-center'>
                     <p className='new-user'>New in gym with Shamim? <span onClick={() => navigate('/signup')} className='signup-toggle'>Sign up</span></p>
                 </div>
+                <ToastContainer />
             </Form>
             <SocialLogin />
         </div>

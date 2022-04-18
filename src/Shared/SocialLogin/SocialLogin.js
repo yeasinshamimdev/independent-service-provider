@@ -8,14 +8,13 @@ import auth from '../../firebase.init';
 import Spinner from '../Spinner/Spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] = useSignInWithFacebook(auth);
-
-    const [user, loading, error] = useAuthState(auth);
-    let googleElement;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (googleError || githubError || facebookError) {
@@ -25,6 +24,10 @@ const SocialLogin = () => {
             else {
                 toast(googleError?.message || githubError?.message || facebookError?.message);
             }
+        }
+
+        if (googleUser || githubUser || facebookUser) {
+            navigate('/home');
         }
     }, [googleError, githubError, facebookError]);
 

@@ -4,14 +4,16 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const [validated, setValidated] = useState(false);
+    const [agree, setAgree] = useState(false);
 
-    const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError,] = useCreateUserWithEmailAndPassword(auth);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    let password;
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,21 +25,36 @@ const SignUp = () => {
         setValidated(true);
 
         const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmPassword = event.target.confirmPassword.value;
-        const termsConditions = event.target.termsConditions.checked;
-        console.log(termsConditions);
-        if (password !== confirmPassword) {
-            setError('Password not match! Try again.');
-            console.log(error);
-        } else {
-            setError('');
+        password = event.target.password.value;
+        const inputConfirmPassword = event.target.confirmPassword.value;
+        if (password !== inputConfirmPassword) {
+            toast('Password not match! Try again.');
         }
+        else if (password.length < 6) {
+            toast('Password must be upto 6 character');
+        }
+        else {
+            createUserWithEmailAndPassword(email, password);
 
-        console.log(email, password, confirmPassword);
+        }
     };
 
-    const navigate = useNavigate();
+    useEffect(() => {
+        if (emailUser) {
+            navigate('/home')
+        }
+        if (emailError?.message === "Firebase: Error (auth/invalid-email).") {
+            toast('wrong email, Please try again.')
+        }
+        if (emailError?.message === "Firebase: Error (auth/email-already-in-use).") {
+            toast('user already created. Please login!')
+        }
+        if (emailUser) {
+            toast('user created successful')
+        }
+
+    }, [emailUser, emailError]);
+    console.log(emailError?.message);
 
     return (
         <div className='form-container'>
@@ -47,7 +64,6 @@ const SignUp = () => {
                     <Form.Group className='mt-2' as={Row} md="4" controlId="validationCustom01">
                         <Form.Label>Your Name</Form.Label>
                         <Form.Control
-                            required
                             type="text"
                             placeholder="Your name"
                         />
@@ -61,7 +77,6 @@ const SignUp = () => {
                             placeholder="Your email"
                             name="email"
                         />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className='mt-2' as={Row} md="4" controlId="validationCustom03">
                         <Form.Label>Password</Form.Label>
@@ -71,7 +86,6 @@ const SignUp = () => {
                             placeholder="password"
                             name="password"
                         />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group className='mt-2' as={Row} md="4" controlId="validationCustom04">
                         <Form.Label className='w-100'>Confirm Password</Form.Label>
@@ -81,12 +95,10 @@ const SignUp = () => {
                             placeholder="confirm password"
                             name="confirmPassword"
                         />
-                        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     </Form.Group>
-                    <p className='text-danger'>{error}</p>
                 </Row>
-                <Form.Group className="mb-3 d-flex justify-content-center">
-                    <Form.Check
+                <Form.Group className={`mb-3 d-flex justify-content-center ${agree ? '' : 'text-danger'}`}>
+                    <Form.Check onClick={() => setAgree(!agree)}
                         required
                         label="Terms and conditions"
                         feedback="You must agree before submitting."
@@ -95,11 +107,12 @@ const SignUp = () => {
                     />
                 </Form.Group>
                 <div className='d-flex justify-content-center'>
-                    <Button className='px-5' type="submit">Sign Up</Button>
+                    <Button disabled={!agree} className='px-5' type="submit">Sign Up</Button>
                 </div>
                 <div className='d-flex justify-content-center'>
                     <p className='new-user'>Already have an account ? <span onClick={() => navigate('/login')} className='signup-toggle'>Login</span></p>
                 </div>
+                <ToastContainer />
             </Form>
             <SocialLogin />
         </div>

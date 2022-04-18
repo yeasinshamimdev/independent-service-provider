@@ -8,6 +8,7 @@
 }
 
 .forget-password{
+    width: 30%;
     text-decoration: underline;
     cursor: pointer;
     color: orangered;
@@ -37,5 +38,8 @@
     }
     .new-user{
         font-size: 14px;
+    }
+    .forget-password{
+        width: 90%;
     }
 }
