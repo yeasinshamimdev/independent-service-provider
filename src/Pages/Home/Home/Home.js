@@ -12,6 +12,7 @@ const Home = () => {
     const [reviews] = useReviews();
     return (
         <div>
+            {/* banner section  */}
             <Banner />
             <div className='home-container pt-4'>
                 <div>
@@ -29,9 +30,11 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* my services section  */}
             <div className='service-home-container'>
                 <Services />
             </div>
+            {/* Review section  */}
             <div>
                 <h1 className='text-center mt-5'>WHAT PEOPLE ARE SAYING</h1>
                 <div className='review-container'>

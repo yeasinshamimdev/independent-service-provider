@@ -92,6 +92,8 @@ const Login = () => {
                 </div>
                 <ToastContainer />
             </Form>
+
+            {/* social login section  */}
             <SocialLogin />
         </div>
     );
